@@ -1,0 +1,1 @@
+This code implements a Deep Convolutional GAN (DCGAN) to generate MNIST digit images, featuring a generator-discriminator architecture with convolutional/transposed layers, Adam optimization, and BCE loss. 
