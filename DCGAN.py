@@ -23,9 +23,9 @@ start_time = datetime.now()  # Start timer
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Hyperparameters
-BATCH_SIZE = 256
+BATCH_SIZE = 128
 Z_DIM = 100  # Size of noise vector
-NUM_EPOCHS = 5
+NUM_EPOCHS = 50
 FEATURES_GEN = 64  # Number of feature maps in generator
 FEATURES_DISC = 64  # Number of feature maps in discriminator
 LR = 2e-4  # Learning rate
@@ -166,8 +166,8 @@ for epoch in range(NUM_EPOCHS):
 
 
 # Save final model weights
-torch.save(gen.state_dict(), 'saved_models/generator_final.pth')
-torch.save(disc.state_dict(), 'saved_models/discriminator_final.pth')
+torch.save(gen.state_dict(), './saved_models/generator_final.pth')
+torch.save(disc.state_dict(), './saved_models/discriminator_final.pth')
 
 end_time = datetime.now()  # End of timer
 execution_time = end_time - start_time
