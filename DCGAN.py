@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import os
 from torchvision.utils import save_image
 from datetime import datetime
+import torch.nn.functional as F
 
 
 
@@ -44,7 +45,7 @@ transform = transforms.Compose([
 dataset = datasets.MNIST(root='./data', train=True, download=True, transform=transform)
 dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True)
 
-# Generator Network (adjusted for 28x28 output)
+# Generator Network 
 class Generator(nn.Module):
     def __init__(self):
         super(Generator, self).__init__()
@@ -76,7 +77,7 @@ class Generator(nn.Module):
         # Crop from 32x32 to 28x28
         return output[:, :, 2:30, 2:30]
 
-# Discriminator Network (adjusted for 28x28 input)
+# Discriminator Network 
 class Discriminator(nn.Module):
     def __init__(self):
         super(Discriminator, self).__init__()
